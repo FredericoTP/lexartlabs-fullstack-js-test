@@ -8,8 +8,24 @@ const customMessage = (fieldName, min, type) => ({
   'any.required': `${fieldName} is a required field`,
 });
 
+const idSchema = Joi.number().min(1).required().messages(customMessage('email', 1, 'string'));
+
 const emailSchema = Joi.string().email().required().messages(customMessage('email', 3, 'string'));
 
+const passwordSchema = Joi.string().min(6).required().messages(customMessage('password', 6, 'string'));
+
+const nameSchema = Joi.string().min(3).required().messages(customMessage('name', 3, 'string'));
+
+const accountSchema = Joi.object({
+  name: nameSchema,
+  email: emailSchema,
+  password: passwordSchema,
+});
+
 module.exports = {
+  idSchema,
   emailSchema,
+  passwordSchema,
+  nameSchema,
+  accountSchema,
 };

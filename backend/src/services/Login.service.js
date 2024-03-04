@@ -1,11 +1,12 @@
 const bcrypt = require('bcryptjs');
 const { Account } = require('../database/models');
 const { generateToken } = require('../authentication/auth');
-const { validateEmail } = require('./validations/validationInputValues');
+const { validateEmail, validatePassword } = require('./validations/validationInputValues');
 const { Unauthorized } = require('../errors');
 
 const login = async (email, password) => {
   validateEmail(email);
+  validatePassword(password);
 
   const account = await Account.findOne({
     where: { email },
@@ -13,7 +14,7 @@ const login = async (email, password) => {
 
   if (!account) throw new Unauthorized('Invalid email or password');
 
-  const isValidPassword = bcrypt.compareSync(password, account.password);
+  const isValidPassword = bcrypt.compareSync(password, account.dataValues.password);
 
   if (!isValidPassword) throw new Unauthorized('Invalid email or password');
 
