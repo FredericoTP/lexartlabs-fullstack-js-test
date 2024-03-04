@@ -28,7 +28,7 @@ const validateAccount = (name, email, password) => {
 };
 
 const validateId = (id) => {
-  const { error } = passwordSchema.validate(id);
+  const { error } = idSchema.validate(id);
 
   if (error) throw new BadRequest(error.message);
 };
