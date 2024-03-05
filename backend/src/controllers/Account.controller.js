@@ -15,9 +15,9 @@ const create = async (req, res) => {
 };
 
 const update = async (req, res) => {
-  const { password, id } = req.body;
+  const { password, infoToken } = req.body;
 
-  await AccountService.updatePassword(password, id);
+  await AccountService.updatePassword(password, infoToken.id);
 
   return res.status(200).json({ message: 'Account has been updated!' });
 };
@@ -27,7 +27,7 @@ const deleteAccount = async (req, res) => {
 
   await AccountService.deleteAccount(email);
 
-  return res.status(204).json({ message: 'Account has been deleted!' });
+  return res.status(200).json({ message: 'Account has been deleted!' });
 };
 
 module.exports = {

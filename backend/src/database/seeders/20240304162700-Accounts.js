@@ -7,12 +7,12 @@ module.exports = {
         id: 1,
         name: 'Ichigo Kurosaki',
         email: 'ichigo@email.com',
-        password: 'abc123',
+        password: '$2a$10$guHnyAr3Lcl8NGb.fa631OLfGlmNFmZpgtCe4FntZnJ69prjnWrp2', // abc123
       }, {
         id: 2,
         name: 'Naruto Uzumaki',
         email: 'naruto@email.com',
-        password: '123abc',
+        password: '$2a$10$2G9Zxm.wXPknRwzjh6u87.wLoozrxZ/SmIcWWwsDAjxYriDRTfVey', // 123abc
       }],
       { timestamps: false },
     );
