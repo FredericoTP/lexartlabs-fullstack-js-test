@@ -80,4 +80,5 @@ module.exports = {
   create,
   updatePassword,
   deleteAccount,
+  findById,
 };

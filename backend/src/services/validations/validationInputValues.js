@@ -1,5 +1,11 @@
 const {
-  idSchema, emailSchema, passwordSchema, accountSchema, nameSchema,
+  idSchema,
+  emailSchema,
+  passwordSchema,
+  accountSchema,
+  nameSchema,
+  productSchema,
+  accountIdSchema,
 } = require('./schemas');
 const { BadRequest } = require('../../errors');
 
@@ -33,10 +39,26 @@ const validateId = (id) => {
   if (error) throw new BadRequest(error.message);
 };
 
+const validateProduct = (name, brand, model, price, color) => {
+  const { error } = productSchema.validate({
+    name, brand, model, price, color,
+  });
+
+  if (error) throw new BadRequest(error.message);
+};
+
+const validateAccountId = (accountId) => {
+  const { error } = accountIdSchema.validate(accountId);
+
+  if (error) throw new BadRequest(error.message);
+};
+
 module.exports = {
   validateEmail,
   validatePassword,
   validateAccount,
   validateName,
   validateId,
+  validateProduct,
+  validateAccountId,
 };
