@@ -10,7 +10,8 @@
     "predev": "npm run db:restore",
     "dev": "nodemon .",
     "db:restore": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
-    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."
+    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json .",
+    "test": "mocha ./src/tests/*/*$NAME*.{test,spec}.js -t 10000 --exit"
   },
   "keywords": [],
   "author": "",
@@ -25,11 +26,16 @@
     "sequelize": "^6.37.1"
   },
   "devDependencies": {
+    "chai": "^4.4.1",
+    "chai-http": "^4.4.0",
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
     "jest": "^29.7.0",
+    "mocha": "^10.3.0",
     "nodemon": "^3.1.0",
-    "sequelize-cli": "^6.6.2"
+    "sequelize-cli": "^6.6.2",
+    "sinon": "^17.0.1",
+    "sinon-chai": "^3.7.0"
   }
 }
