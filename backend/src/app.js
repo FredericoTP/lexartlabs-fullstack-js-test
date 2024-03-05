@@ -1,5 +1,5 @@
 const express = require('express');
-const { LoginRouter, AccountRouter } = require('./routers');
+const { LoginRouter, AccountRouter, ProductRouter } = require('./routers');
 const HttpError = require('./errors/HttpError');
 
 const app = express();
@@ -9,6 +9,8 @@ app.use(express.json());
 app.use('/login', LoginRouter);
 
 app.use('/account', AccountRouter);
+
+app.use('/product', ProductRouter);
 
 app.get('/health', (_req, res) => res.status(200).send('Server on and healthy!'));
 
