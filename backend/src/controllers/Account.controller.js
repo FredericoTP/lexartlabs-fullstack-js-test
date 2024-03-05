@@ -1,6 +1,6 @@
 const { AccountService } = require('../services');
 
-const findAll = async (req, res) => {
+const findAll = async (_req, res) => {
   const accounts = await AccountService.findAll();
 
   return res.status(200).json(accounts);
