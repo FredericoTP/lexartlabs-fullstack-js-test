@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
+import styles from '../styles/Header.module.css';
 
 function Header() {
   const navigate = useNavigate();
@@ -9,14 +10,15 @@ function Header() {
   }
 
   return (
-    <header>
-      <div>
-        <Link to="/home">Início</Link>
-        <Link to="/product">Meus Produtos</Link>
-        <Link to="/create">Novo Produto</Link>
+    <header className={styles.container}>
+      <div className={styles.container_links}>
+        <Link className={`${styles.links} btn btn-outline-light`} to="/home">Início</Link>
+        <Link className={`${styles.links} btn btn-outline-light`} to="/product">Meus Produtos</Link>
+        <Link className={`${styles.links} btn btn-outline-light`} to="/create">Novo Produto</Link>
       </div>
-      <div>
+      <div className={styles.container_btn}>
         <button
+          className="btn btn-outline-danger"
           type="button"
           onClick={logOut}
         >

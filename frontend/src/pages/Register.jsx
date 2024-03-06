@@ -3,6 +3,7 @@ import { AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
 import api from '../utils/apiInstance';
 import useInput from '../hooks/useInput';
+import styles from '../styles/Register.module.css';
 
 function Register() {
   const nameInput = useInput('');
@@ -82,14 +83,20 @@ function Register() {
   }
 
   return (
-    <main>
-      <div>
+    <main className={styles.container}>
+      <div className={styles.container_title}>
         <h2>Criar nova conta</h2>
       </div>
-      <form onSubmit={(e) => handleRegister(e)}>
-        <div>
-          <label htmlFor="name-input">Nome:</label>
+      <form className={styles.container_form} onSubmit={(e) => handleRegister(e)}>
+        <div className={styles.container_input}>
+          <label
+            className="form-label"
+            htmlFor="name-input"
+          >
+            Nome:
+          </label>
           <input
+            className="form-control"
             id="name-input"
             type="text"
             placeholder="Nome"
@@ -97,9 +104,15 @@ function Register() {
             onChange={nameInput.handleChange}
           />
         </div>
-        <div>
-          <label htmlFor="email-input">Email:</label>
+        <div className={styles.container_input}>
+          <label
+            className="form-label"
+            htmlFor="email-input"
+          >
+            Email:
+          </label>
           <input
+            className="form-control"
             id="email-input"
             type="email"
             placeholder="Email"
@@ -107,9 +120,15 @@ function Register() {
             onChange={emailInput.handleChange}
           />
         </div>
-        <div>
-          <label htmlFor="passwordOne-input">Password:</label>
+        <div className={styles.container_input}>
+          <label
+            className="form-label"
+            htmlFor="passwordOne-input"
+          >
+            Password:
+          </label>
           <input
+            className="form-control"
             id="passwordOne-input"
             type="password"
             placeholder="Password"
@@ -117,9 +136,15 @@ function Register() {
             onChange={passwordOneInput.handleChange}
           />
         </div>
-        <div>
-          <label htmlFor="passwordTwo-input">Password:</label>
+        <div className={styles.container_input}>
+          <label
+            className="form-label"
+            htmlFor="passwordTwo-input"
+          >
+            Password:
+          </label>
           <input
+            className="form-control"
             id="passwordTwo-input"
             type="password"
             placeholder="Password"
@@ -127,19 +152,20 @@ function Register() {
             onChange={passwordTwoInput.handleChange}
           />
         </div>
-        <div>
+        <div className={styles.container_btn}>
           {
             isLoading ? (
               <p>Carregando...</p>
             ) : (
               <button
+                className={`${styles.btn} btn btn-outline-light`}
                 type="submit"
               >
                 Cadastrar
               </button>
             )
           }
-          <small>{alertMessage}</small>
+          <small className={styles.small_warning}>{alertMessage}</small>
         </div>
       </form>
     </main>
