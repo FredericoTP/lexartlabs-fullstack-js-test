@@ -62,9 +62,9 @@ const update = async (req, res) => {
 };
 
 const deleteProduct = async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
 
-  await ProductService.deleteProduct(id);
+  await ProductService.deleteProduct(+id);
 
   return res.status(200).json({ message: 'Product has been deleted!' });
 };

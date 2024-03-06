@@ -10,6 +10,7 @@ function AccountProducts() {
     userProducts,
     accountProducts,
     isLoading,
+    deleteProduct,
   } = useContext(MainContext);
 
   useEffect(() => {
@@ -68,11 +69,7 @@ function AccountProducts() {
                     </p>
                     <button
                       type="button"
-                    >
-                      Editar
-                    </button>
-                    <button
-                      type="button"
+                      onClick={() => deleteProduct(product.id)}
                     >
                       Excluir
                     </button>

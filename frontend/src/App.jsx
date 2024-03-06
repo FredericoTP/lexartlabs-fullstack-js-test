@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
 import AccountProducts from './pages/AccountProducts';
+import NewProduct from './pages/NewProduct';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Home />} />
           <Route path="/product" element={<AccountProducts />} />
+          <Route path="/create" element={<NewProduct />} />
         </Routes>
       </MainProvider>
     </LoginProvider>

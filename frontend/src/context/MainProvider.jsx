@@ -33,6 +33,7 @@ function MainProvider({ children }) {
       const token = getToken();
 
       const response = await api.get('/product/account', { headers: { Authorization: token } });
+
       setAccountProducts(response.data);
       setIsLoading(false);
     } catch (err) {
@@ -59,6 +60,21 @@ function MainProvider({ children }) {
     }
   }
 
+  async function deleteProduct(id) {
+    try {
+      setIsLoading(true);
+      const token = getToken();
+
+      await api.delete(`/product/${id}`, { headers: { Authorization: token } });
+
+      userProducts();
+
+      alert('Produto excluído!');
+    } catch (err) {
+      setIsLoading(false);
+    }
+  }
+
   const valueMain = useMemo(() => ({
     checkLogin,
     userInfo,
@@ -69,6 +85,7 @@ function MainProvider({ children }) {
     allProducts,
     isLoading,
     alertMessage,
+    deleteProduct,
   }), [user, accountProducts, products, isLoading, alertMessage]);
 
   return (
