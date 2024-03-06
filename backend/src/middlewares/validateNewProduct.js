@@ -1,7 +1,5 @@
 const validateNewProduct = (req, res, next) => {
-  const { products } = req.body;
-
-  if (!products) res.status(400).json({ message: 'products is a required field!' });
+  const products = req.body;
 
   if (!Array.isArray(products)) {
     if (!products.details) {
@@ -24,24 +22,26 @@ const validateNewProduct = (req, res, next) => {
       }
     }
   } else {
-    if (!products.every((item) => 'name' in item)) {
+    const arrayProducts = [...products];
+
+    if (!arrayProducts.every((item) => 'name' in item)) {
       return res.status(400).json({ message: 'name is a required field in all products!' });
     }
 
-    if (!products.every((item) => 'brand' in item)) {
+    if (!arrayProducts.every((item) => 'brand' in item)) {
       return res.status(400).json({ message: 'brand is a required field in all products!' });
     }
 
-    if (!products.every((item) => 'model' in item)) {
+    if (!arrayProducts.every((item) => 'model' in item)) {
       return res.status(400).json({ message: 'model is a required field in all products!' });
     }
 
-    if (!products.every((item) => 'data' in item)) {
+    if (!arrayProducts.every((item) => 'data' in item)) {
       return res.status(400).json({ message: 'data is a required field in all products!' });
     }
 
-    if (!products.every((item) => 'price' in item.data && 'color' in item.data)) {
-      return res.status(400).json({ message: 'All fields inside data (brand, model, color) are required!' });
+    if (!arrayProducts.every((item) => item.data.every((i) => 'price' in i && 'color' in i))) {
+      return res.status(400).json({ message: 'All fields inside data (price, color) are required!' });
     }
   }
 

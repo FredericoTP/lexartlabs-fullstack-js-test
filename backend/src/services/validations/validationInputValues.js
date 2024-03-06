@@ -39,9 +39,9 @@ const validateId = (id) => {
   if (error) throw new BadRequest(error.message);
 };
 
-const validateProduct = (name, brand, model, price, color) => {
+const validateProduct = (name, brand, model, price, color, accountId) => {
   const { error } = productSchema.validate({
-    name, brand, model, price, color,
+    name, brand, model, price, color, accountId,
   });
 
   if (error) throw new BadRequest(error.message);

@@ -45,7 +45,7 @@ module.exports = (sequelize, Datatypes) => {
     Product.belongsTo(
       models.Account,
       {
-        foreignKey: 'accountId',
+        foreignKey: 'id',
         as: 'account',
         onDelete: 'CASCADE',
       },

@@ -4,7 +4,7 @@ const sinonChai = require('sinon-chai');
 const bcrypt = require('bcryptjs');
 const { AccountService } = require('../../services');
 const { Account } = require('../../database/models');
-const { Unauthorized, BadRequest, Conflict } = require('../../errors');
+const { BadRequest, Conflict } = require('../../errors');
 const {
   allAccounts, oneAccount, newEmptyAcc, newAccount,
 } = require('./mocks/mockAccount');

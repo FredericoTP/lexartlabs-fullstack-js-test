@@ -43,13 +43,9 @@ const create = async (name, brand, model, price, color, accountId) => {
   return product;
 };
 
-const update = async (id, productInfo) => {
+const update = async (id, name, brand, model, price, color, accountId) => {
   validateId(id);
-  validateProduct(...productInfo);
-
-  const {
-    name, brand, model, price, color,
-  } = productInfo;
+  validateProduct(name, brand, model, price, color, accountId);
 
   const checkProduct = await findProductById(id);
 
@@ -77,6 +73,7 @@ const deleteProduct = async (id) => {
 
 module.exports = {
   findAll,
+  findProductById,
   findByAccountId,
   create,
   update,

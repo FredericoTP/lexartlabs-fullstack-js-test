@@ -24,7 +24,7 @@ const productHandler = (newProduct) => {
       });
     });
 
-    return { products };
+    return products;
   }
 
   return newProduct;
