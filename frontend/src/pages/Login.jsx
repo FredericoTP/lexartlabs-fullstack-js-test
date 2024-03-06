@@ -47,7 +47,7 @@ function Login() {
         <p>
           Novo por aqui?
           {' '}
-          <a href="/registro">Cadastre-se</a>
+          <a href="/register">Cadastre-se</a>
         </p>
       </div>
     </div>
