@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react';
 import MainContext from '../context/MainContext';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import styles from '../styles/Home.module.css';
 
 function Home() {
   const {
@@ -20,27 +21,27 @@ function Home() {
 
   if (isLoading) {
     return (
-      <>
+      <div className={styles.container}>
         <Header />
         <p>Carregando...</p>
         <Footer />
-      </>
+      </div>
     );
   }
 
   return (
-    <>
+    <div className={styles.container}>
       <Header />
-      <main>
-        <div>
+      <main className={styles.container_main}>
+        <div className={styles.container_title}>
           <h1>Produtos Disponíveis</h1>
         </div>
-        <div>
+        <div className={styles.container_products}>
           {
             products.length === 0 ? (
               <p>Nenhum produto encontrado!</p>
             ) : (
-              <ul>
+              <ul className={styles.list_products}>
                 {products.map((product) => (
                   <li key={product.id}>
                     <h3>{product.name}</h3>
@@ -74,7 +75,7 @@ function Home() {
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 
