@@ -4,6 +4,7 @@ import MainProvider from './context/MainProvider';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
+import AccountProducts from './pages/AccountProducts';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/product" element={<AccountProducts />} />
         </Routes>
       </MainProvider>
     </LoginProvider>

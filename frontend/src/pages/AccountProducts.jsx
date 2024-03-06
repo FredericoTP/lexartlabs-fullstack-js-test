@@ -3,19 +3,19 @@ import MainContext from '../context/MainContext';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-function Home() {
+function AccountProducts() {
   const {
     checkLogin,
     userInfo,
-    products,
-    allProducts,
+    userProducts,
+    accountProducts,
     isLoading,
   } = useContext(MainContext);
 
   useEffect(() => {
     checkLogin();
     userInfo();
-    allProducts();
+    userProducts();
   }, []);
 
   if (isLoading) {
@@ -33,15 +33,15 @@ function Home() {
       <Header />
       <main>
         <div>
-          <h1>Produtos Disponíveis</h1>
+          <h1>Meus Produtos</h1>
         </div>
         <div>
           {
-            products.length === 0 ? (
+            accountProducts.length === 0 ? (
               <p>Nenhum produto encontrado!</p>
             ) : (
               <ul>
-                {products.map((product) => (
+                {accountProducts.map((product) => (
                   <li key={product.id}>
                     <h3>{product.name}</h3>
                     <p>
@@ -66,6 +66,16 @@ function Home() {
                       {' '}
                       {product.color}
                     </p>
+                    <button
+                      type="button"
+                    >
+                      Editar
+                    </button>
+                    <button
+                      type="button"
+                    >
+                      Excluir
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -78,4 +88,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default AccountProducts;
