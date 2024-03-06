@@ -1,0 +1,39 @@
+version: '3'
+services:
+  backend:
+    build: ./backend
+    container_name: management_app
+    ports:
+      - 3001:3001
+    working_dir: /app/backend
+    volumes:
+      - ./backend/:/app/backend
+    command: npm run dev
+    env_file:
+      - .env
+    tty: true
+    stdin_open: true
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: [ "CMD", "lsof", "-t", "-i:3001" ]
+      timeout: 10s
+      retries: 5
+
+  db:
+    image: postgres:latest
+    container_name: database
+    restart: always
+    ports:
+      - 5432:5432
+    env_file:
+      - .db_env
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U $POSTGRES_USER -d $POSTGRES_DB"
+        ]
+      interval: 10s
+      retries: 5
