@@ -13,7 +13,7 @@ router.post('/', validateAuth, validateNewProduct, ProductController.create);
 
 router.put('/', validateAuth, validateUpdateProduct, ProductController.update);
 
-router.delete('/', validateAuth, validateDeleteProduct, ProductController.deleteProduct);
+router.delete('/:id', validateAuth, validateDeleteProduct, ProductController.deleteProduct);
 
 router.get('/account', validateAuth, ProductController.findByAccountId);
 

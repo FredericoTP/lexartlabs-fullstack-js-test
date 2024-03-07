@@ -21,7 +21,7 @@ module.exports = (sequelize, Datatypes) => {
         allowNull: false,
       },
       price: {
-        type: Datatypes.INTEGER,
+        type: Datatypes.FLOAT,
         allowNull: false,
       },
       color: {

@@ -1,0 +1,95 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #505050;
+}
+
+.loading {
+  color: white;
+  margin: auto;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.container_main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.container_title {
+  color: white;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.container_products {
+  display: flex;
+  width: 90%;
+}
+
+.p_product {
+  margin: auto;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.list_products {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.list_products > li {
+  width: 49%;
+  margin-bottom: 15px;
+  background-color: gainsboro;
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.list_products > li > h3 {
+  color: black;
+  font-weight: bold;
+  word-wrap: break-word;
+  margin-bottom: 5px;
+}
+
+.list_products > li > p {
+  color: #505050;
+  margin-bottom: 2px;
+}
+
+.list_products > li > button {
+  width: 70%;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+  padding: 2px;
+}
+
+@media screen and (min-width : 720px) {
+  .list_products > li {
+    width: 30%;
+  }
+}
+
+@media screen and (min-width : 1200px) {
+  .list_products > li {
+    width: 24%;
+  }
+}
+
+@media screen and (min-width : 1800px) {
+  .list_products > li {
+    width: 19%;
+  }
+}
