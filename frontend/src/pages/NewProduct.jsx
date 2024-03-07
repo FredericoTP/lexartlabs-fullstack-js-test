@@ -7,6 +7,7 @@ import api from '../utils/apiInstance';
 import useInput from '../hooks/useInput';
 import useInputNumber from '../hooks/useInputNumber';
 import { getToken } from '../utils/authentication';
+import styles from '../styles/NewProduct.module.css';
 
 function NewProduct() {
   const { checkLogin } = useContext(MainContext);
@@ -89,16 +90,17 @@ function NewProduct() {
   }
 
   return (
-    <>
+    <div className={styles.container}>
       <Header />
-      <main>
-        <div>
+      <main className={styles.container_main}>
+        <div className={styles.container_title}>
           <h2>Criar Novo Produto</h2>
         </div>
-        <form onSubmit={(e) => handleCreate(e)}>
-          <div>
-            <label htmlFor="name-input">Nome: </label>
+        <form className={styles.container_form} onSubmit={(e) => handleCreate(e)}>
+          <div className={styles.container_input}>
+            <label className="form-label" htmlFor="name-input">Nome: </label>
             <input
+              className="form-control"
               id="name-input"
               type="text"
               placeholder="Nome"
@@ -106,9 +108,10 @@ function NewProduct() {
               onChange={nameInput.handleChange}
             />
           </div>
-          <div>
-            <label htmlFor="brand-input">Marca: </label>
+          <div className={styles.container_input}>
+            <label className="form-label" htmlFor="brand-input">Marca: </label>
             <input
+              className="form-control"
               id="brand-input"
               type="text"
               placeholder="Marca"
@@ -116,9 +119,10 @@ function NewProduct() {
               onChange={brandInput.handleChange}
             />
           </div>
-          <div>
-            <label htmlFor="model-input">Modelo: </label>
+          <div className={styles.container_input}>
+            <label className="form-label" htmlFor="model-input">Modelo: </label>
             <input
+              className="form-control"
               id="model-input"
               type="text"
               placeholder="Modelo"
@@ -126,9 +130,10 @@ function NewProduct() {
               onChange={modelInput.handleChange}
             />
           </div>
-          <div>
-            <label htmlFor="price-input">Preço: </label>
+          <div className={styles.container_input}>
+            <label className="form-label" htmlFor="price-input">Preço: </label>
             <input
+              className="form-control"
               id="price-input"
               type="number"
               placeholder="Valor"
@@ -136,9 +141,10 @@ function NewProduct() {
               onChange={priceInput.handleChange}
             />
           </div>
-          <div>
-            <label htmlFor="color-input">Cor: </label>
+          <div className={styles.container_input}>
+            <label className="form-label" htmlFor="color-input">Cor: </label>
             <input
+              className="form-control"
               id="color-input"
               type="text"
               placeholder="Cor"
@@ -146,24 +152,25 @@ function NewProduct() {
               onChange={colorInput.handleChange}
             />
           </div>
-          <div>
+          <div className={styles.container_btn}>
             {
             isLoading ? (
               <p>Carregando...</p>
             ) : (
               <button
+                className={`${styles.btn} btn btn-outline-light`}
                 type="submit"
               >
                 Cadastrar
               </button>
             )
           }
-            <small>{alertMessage}</small>
+            <small className={styles.small_warning}>{alertMessage}</small>
           </div>
         </form>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

@@ -51,6 +51,8 @@
   background-color: gainsboro;
   padding: 5px;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 .list_products > li > h3 {
@@ -63,6 +65,15 @@
 .list_products > li > p {
   color: #505050;
   margin-bottom: 2px;
+}
+
+.list_products > li > button {
+  width: 70%;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+  padding: 2px;
 }
 
 @media screen and (min-width : 720px) {

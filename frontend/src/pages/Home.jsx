@@ -23,7 +23,7 @@ function Home() {
     return (
       <div className={styles.container}>
         <Header />
-        <p>Carregando...</p>
+        <p className={styles.loading}>Carregando...</p>
         <Footer />
       </div>
     );
@@ -39,7 +39,7 @@ function Home() {
         <div className={styles.container_products}>
           {
             products.length === 0 ? (
-              <p>Nenhum produto encontrado!</p>
+              <p className={styles.p_product}>Nenhum produto encontrado!</p>
             ) : (
               <ul className={styles.list_products}>
                 {products.map((product) => (

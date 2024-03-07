@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react';
 import MainContext from '../context/MainContext';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import styles from '../styles/AccountProducts.module.css';
 
 function AccountProducts() {
   const {
@@ -21,27 +22,27 @@ function AccountProducts() {
 
   if (isLoading) {
     return (
-      <>
+      <div className={styles.container}>
         <Header />
-        <p>Carregando...</p>
+        <p className={styles.loading}>Carregando...</p>
         <Footer />
-      </>
+      </div>
     );
   }
 
   return (
-    <>
+    <div className={styles.container}>
       <Header />
-      <main>
-        <div>
+      <main className={styles.container_main}>
+        <div className={styles.container_title}>
           <h1>Meus Produtos</h1>
         </div>
-        <div>
+        <div className={styles.container_products}>
           {
             accountProducts.length === 0 ? (
-              <p>Nenhum produto encontrado!</p>
+              <p className={styles.p_product}>Nenhum produto encontrado!</p>
             ) : (
-              <ul>
+              <ul className={styles.list_products}>
                 {accountProducts.map((product) => (
                   <li key={product.id}>
                     <h3>{product.name}</h3>
@@ -68,6 +69,7 @@ function AccountProducts() {
                       {product.color}
                     </p>
                     <button
+                      className="btn btn-dark"
                       type="button"
                       onClick={() => deleteProduct(product.id)}
                     >
@@ -81,7 +83,7 @@ function AccountProducts() {
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 
