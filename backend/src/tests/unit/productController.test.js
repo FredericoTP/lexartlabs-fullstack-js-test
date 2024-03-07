@@ -102,7 +102,7 @@ describe('ProductController', () => {
 
   describe('Testing deleteProduct function', () => {
     it('Succesfully deletes an product', async () => {
-      req.body = {id: createdProduct.id}
+      req.params = {id: createdProduct.id}
 
       sinon.stub(ProductService, 'deleteProduct').resolves()
 
